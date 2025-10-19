@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Image Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>📸 Image Gallery</h1>
+    <div class="top-controls">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="nature">Nature</button>
+      <button class="filter-btn" data-filter="city">City</button>
+      <button class="filter-btn" data-filter="animals">Animals</button>
+      <input type="text" id="searchBox" placeholder="Search..." />
+      <button class="theme-toggle" id="theme-toggle">🌙 Dark Mode</button>
+    </div>
+  </header>
+
+  <section class="gallery">
+    <div class="image-card" data-category="nature">
+      <img src="https://picsum.photos/id/1018/600/400" alt="Forest">
+      <p class="caption">Forest</p>
+    </div>
+    <div class="image-card" data-category="city">
+      <img src="https://picsum.photos/id/1011/600/400" alt="City">
+      <p class="caption">City</p>
+    </div>
+    <div class="image-card" data-category="animals">
+      <img src="https://picsum.photos/id/1025/600/400" alt="Dog">
+      <p class="caption">Dog</p>
+    </div>
+    <div class="image-card" data-category="nature">
+      <img src="https://picsum.photos/id/1003/600/400" alt="Mountains">
+      <p class="caption">Mountains</p>
+    </div>
+    <div class="image-card" data-category="city">
+      <img src="https://picsum.photos/id/1043/600/400" alt="Street">
+      <p class="caption">Street</p>
+    </div>
+    <div class="image-card" data-category="animals">
+      <img src="https://picsum.photos/id/1062/600/400" alt="Cat">
+      <p class="caption">Cat</p>
+    </div>
+  </section>
+
+  <div class="lightbox">
+    <span class="close">✖</span>
+    <img src="" alt="" class="lightbox-img" />
+    <p class="lightbox-caption"></p>
+    <div class="navigation">
+      <button class="prev">⟨ Prev</button>
+      <button class="next">Next ⟩</button>
+    </div>
+  </div>
+
+  <!-- JS file linked at the end -->
+  <script src="script.js" defer></script>
+</body>
+</html>

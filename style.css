@@ -1,0 +1,69 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+body { background: #f2f2f2; color: #333; transition: background .3s, color .3s; }
+header { text-align: center; padding: 20px; }
+.top-controls { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin-top: 10px; }
+
+.filter-btn, .theme-toggle { padding: 8px 14px; border: none; background: #333; color: #fff; cursor: pointer; border-radius: 4px; }
+.filter-btn.active { background: #0077ff; }
+#searchBox { padding: 8px; border: 1px solid #aaa; border-radius: 4px; }
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fill,minmax(250px,1fr)); gap: 15px; padding: 20px; }
+.image-card { position: relative; overflow: hidden; border-radius: 10px; cursor: pointer; }
+.image-card img { width: 100%; display: block; transition: transform .3s; }
+.image-card:hover img { transform: scale(1.05); }
+.caption { text-align: center; padding: 8px; background: #fff; }
+
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; flex-direction: column; z-index: 1000; }
+.lightbox img { max-width: 90%; max-height: 70vh; border-radius: 10px; }
+.lightbox p { color: #fff; margin-top: 10px; }
+
+.navigation { margin-top: 10px; display: flex; gap: 20px; }
+.navigation button, .close { background: #fff; border: none; padding: 10px 14px; border-radius: 4px; cursor: pointer; }
+
+.dark { background: #222; color: #fff; }
+.dark .caption { background: #333; color: #fff; }
+
+function showImage() {
+  lightboxImg.classList.remove('show'); // reset opacity
+  const newSrc = images[currentIndex].src;
+  const newAlt = images[currentIndex].alt;
+
+  // Fade transition effect
+  setTimeout(() => {
+    lightboxImg.src = newSrc;
+    lightboxCaption.textContent = newAlt;
+    lightboxImg.classList.add('show');
+  }, 100);
+}
+
+/* --- Zoom-in + Fade effect for lightbox images --- */
+.lightbox-img {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.lightbox-img.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* --- Slide animation for next/prev navigation --- */
+@keyframes slideInFromRight {
+  from { transform: translateX(50%) scale(0.95); opacity: 0; }
+  to { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-50%) scale(0.95); opacity: 0; }
+  to { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+.lightbox-img.slide-right {
+  animation: slideInFromRight 0.5s ease forwards;
+}
+
+.lightbox-img.slide-left {
+  animation: slideInFromLeft 0.5s ease forwards;
+}
