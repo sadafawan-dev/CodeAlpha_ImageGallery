@@ -28,3 +28,27 @@ Users can filter images by category, search by name, and navigate through a full
 | **HTML5** | Structure & layout |
 | **CSS3** | Styling, responsiveness, and animations |
 | **JavaScript (ES6)** | Interactivity and functionality |
+
+---
+
+## ⚙️ Setup Instructions  
+
+### 🔹 Step 1 — Clone the repository  
+```bash
+git clone https://github.com/yourusername/responsive-image-gallery.git
+
+ 🔹 Step 2 — Open the folder
+cd responsive-image-gallery
+
+🔹 Step 3 — Run the project
+
+Simply open the file index.html in your web browser — no server required!
+
+🗂️ Folder Structure
+responsive-image-gallery/
+│
+├── index.html        # Main HTML structure
+├── style.css         # All design and layout styling
+├── script.js         # JavaScript logic & animations
+└── README.md         # Project documentation
+
